@@ -1,7 +1,7 @@
 from pyspark import SparkContext, SparkConf
 
 if __name__ == "__main__":
-    conf = SparkConf().setAppName("count").setMaster("local[*]")
+    conf = SparkConf().setAppName("count").setMaster("local[2]")
     sc = SparkContext(conf = conf)
     
     inputWords = ["spark", "hadoop", "spark", "hive", "pig", "cassandra", "hadoop"]

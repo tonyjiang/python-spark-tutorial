@@ -8,7 +8,11 @@ if __name__ == "__main__":
     integerRdd = sc.parallelize(inputIntegers)
     
     integerRdd.persist(StorageLevel.MEMORY_ONLY)
+    #integerRdd.saveAsTextFile("out/integerO")
     
-    integerRdd.reduce(lambda x, y: x*y)
-    
-    integerRdd.count()
+    value_prod = integerRdd.reduce(lambda x, y: x*y)
+    value_plus = integerRdd.reduce(lambda x, y: x+y)
+    kount = integerRdd.count()
+    print("count ----------------------- {}".format(kount))
+    print("value ----------------------- {}".format(value_prod))
+    print("value ----------------------- {}".format(value_plus))
